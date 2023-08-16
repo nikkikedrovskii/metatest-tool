@@ -1,0 +1,16 @@
+info.app:
+  name: Prompt picture app
+
+spring:
+  codec:
+    max-in-memory-size: 100MB
+  datasource:
+    url: jdbc:postgresql://localhost:5002/metatest?currentSchema=public
+    username: metatest
+    password: password
+    driver-class-name: org.postgresql.Driver
+    hikari:
+      maximum-pool-size: 10
+  liquibase:
+    enabled: true
+    change-log: classpath:db/changelog-master.xml

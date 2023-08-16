@@ -1,0 +1,27 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:pro="http://www.liquibase.org/xml/ns/pro" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-4.1.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.1.xsd">
+
+    <changeSet id="add_user_table" author="nkedrovskii">
+        <createSequence sequenceName="user_id_seq" startValue="1000"/>
+        <createTable tableName="user">
+            <column name="id" type="BIGINT" defaultValueSequenceNext="user_id_seq">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="user_id"/>
+            </column>
+            <column name="external_customer_id" type="uuid">
+                <constraints nullable="false"/>
+            </column>
+            <column name="name" type="text">
+            </column>
+            <column name="email" type="text">
+            </column>
+            <column name="password" type="text">
+            </column>
+            <column name="created_at" type="timestamp with time zone">
+                <constraints nullable="false"/>
+            </column>
+            <column name="updated_at" type="timestamp with time zone">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+</databaseChangeLog>
